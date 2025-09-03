@@ -25,7 +25,7 @@ A Mastra template that generates educational flash cards with optional images fr
    Create a `.env` file with:
 
    ```
-   OPENAI_API_KEY=your_openai_api_key
+   GOOGLE_GENERATIVE_AI_API_KEY=your_openai_api_key
 
    # For image generation (optional)
    AWS_REGION=us-east-1
@@ -279,7 +279,7 @@ When `generateImages` is enabled, the template generates educational visuals for
 
 ### Required
 
-- `OPENAI_API_KEY`: Required for AI-powered content analysis and flash card generation
+- `GOOGLE_GENERATIVE_AI_API_KEY`: Required for AI-powered content analysis and flash card generation
 
 ### Optional (for image generation)
 
@@ -357,7 +357,7 @@ To modify or extend this template:
 ## Dependencies
 
 - `@mastra/core`: Core Mastra framework
-- `@ai-sdk/openai`: OpenAI integration for content analysis and generation
+- `@ai-sdk/google`: Google integration for content analysis and generation
 - `@aws-sdk/client-s3`: S3 cloud storage for educational images
 - `ai`: AI SDK for DALL-E 3 image generation
 - `pdf2json`: PDF text extraction and parsing

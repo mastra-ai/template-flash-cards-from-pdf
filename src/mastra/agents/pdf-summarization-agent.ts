@@ -1,4 +1,4 @@
-import { openai } from '@ai-sdk/openai';
+import { google } from '@ai-sdk/google';
 import { Agent } from '@mastra/core/agent';
 import { LibSQLStore } from '@mastra/libsql';
 import { Memory } from '@mastra/memory';
@@ -114,6 +114,6 @@ Structure your summary to facilitate flash card generation:
 
 Always provide summaries that preserve the educational richness needed for creating comprehensive, effective flash cards while making the content more manageable for AI processing.
   `,
-  model: openai('gpt-4.1-mini'),
+  model: google(process.env.MODEL ?? "gemini-2.5-pro"),
   memory,
 });
