@@ -114,6 +114,6 @@ Structure your summary to facilitate flash card generation:
 
 Always provide summaries that preserve the educational richness needed for creating comprehensive, effective flash cards while making the content more manageable for AI processing.
   `,
-  model: openai('gpt-4.1-mini'),
+  model: openai(process.env.MODEL ?? "gpt-4.1"),
   memory,
 });

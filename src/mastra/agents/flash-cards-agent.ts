@@ -113,7 +113,7 @@ When successful, provide:
 
 Always focus on creating educationally sound, pedagogically effective flash cards that promote deep learning and long-term retention.
   `,
-  model: openai('gpt-4o'),
+  model: openai(process.env.MODEL ?? "gpt-4.1"),
   tools: {
     pdfContentExtractorTool,
     contentAnalyzerTool,

@@ -108,6 +108,6 @@ Provide comprehensive educational summaries that include:
 
 Your analysis will serve as the foundation for creating effective educational flash cards, so ensure every element you extract is valuable for learning and suitable for question-answer format.
   `,
-  model: openai('gpt-4o'),
+  model: openai(process.env.MODEL ?? "gpt-4.1"),
   memory,
 });

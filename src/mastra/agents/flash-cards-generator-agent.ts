@@ -127,6 +127,6 @@ Provide perfectly structured JSON output with:
 
 Your flash cards should be pedagogically sound, engaging, and effective for helping students achieve their learning objectives.
   `,
-  model: openai('gpt-4o'),
+  model: openai(process.env.MODEL ?? "gpt-4.1"),
   memory,
 });
