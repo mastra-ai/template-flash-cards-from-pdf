@@ -1,4 +1,4 @@
-import { openai } from '@ai-sdk/openai';
+import { anthropic } from '@ai-sdk/anthropic';
 import { Agent } from '@mastra/core/agent';
 import { LibSQLStore } from '@mastra/libsql';
 import { Memory } from '@mastra/memory';
@@ -127,6 +127,6 @@ Provide perfectly structured JSON output with:
 
 Your flash cards should be pedagogically sound, engaging, and effective for helping students achieve their learning objectives.
   `,
-  model: openai('gpt-4o'),
+  model: anthropic(process.env.MODEL ?? "claude-3-5-sonnet-20240620"),
   memory,
 });

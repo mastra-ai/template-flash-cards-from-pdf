@@ -1,4 +1,4 @@
-import { openai } from '@ai-sdk/openai';
+import { anthropic } from '@ai-sdk/anthropic';
 import { Agent } from '@mastra/core/agent';
 import { LibSQLStore } from '@mastra/libsql';
 import { Memory } from '@mastra/memory';
@@ -108,6 +108,6 @@ Provide comprehensive educational summaries that include:
 
 Your analysis will serve as the foundation for creating effective educational flash cards, so ensure every element you extract is valuable for learning and suitable for question-answer format.
   `,
-  model: openai('gpt-4o'),
+  model: anthropic(process.env.MODEL ?? "claude-3-5-sonnet-20240620"),
   memory,
 });

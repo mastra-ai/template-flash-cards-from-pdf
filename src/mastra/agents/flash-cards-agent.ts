@@ -1,4 +1,4 @@
-import { openai } from '@ai-sdk/openai';
+import { anthropic } from '@ai-sdk/anthropic';
 import { Agent } from '@mastra/core/agent';
 import { pdfContentExtractorTool } from '../tools/pdf-content-extractor-tool';
 import { contentAnalyzerTool } from '../tools/content-analyzer-tool';
@@ -113,7 +113,7 @@ When successful, provide:
 
 Always focus on creating educationally sound, pedagogically effective flash cards that promote deep learning and long-term retention.
   `,
-  model: openai('gpt-4o'),
+  model: anthropic(process.env.MODEL ?? "claude-3-5-sonnet-20240620"),
   tools: {
     pdfContentExtractorTool,
     contentAnalyzerTool,
