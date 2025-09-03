@@ -1,4 +1,4 @@
-import { openai } from '@ai-sdk/openai';
+import { groq } from '@ai-sdk/groq';
 import { Agent } from '@mastra/core/agent';
 import { pdfContentExtractorTool } from '../tools/pdf-content-extractor-tool';
 import { contentAnalyzerTool } from '../tools/content-analyzer-tool';
@@ -113,7 +113,7 @@ When successful, provide:
 
 Always focus on creating educationally sound, pedagogically effective flash cards that promote deep learning and long-term retention.
   `,
-  model: openai('gpt-4o'),
+  model: groq(process.env.MODEL ?? "llama-3.3-70b-versatile"),
   tools: {
     pdfContentExtractorTool,
     contentAnalyzerTool,
