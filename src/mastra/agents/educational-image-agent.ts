@@ -1,4 +1,4 @@
-import { openai } from '@ai-sdk/openai';
+import { google } from '@ai-sdk/google';
 import { Agent } from '@mastra/core/agent';
 import { educationalImageTool } from '../tools/educational-image-tool';
 import { LibSQLStore } from '@mastra/libsql';
@@ -112,7 +112,7 @@ Every image should:
 
 Your role is to be the bridge between abstract educational concepts and concrete visual understanding, helping learners create stronger, more memorable connections with their study material.
   `,
-  model: openai('gpt-4o'),
+  model: google(process.env.MODEL ?? "gemini-2.5-pro"),
   tools: {
     educationalImageTool,
   },
