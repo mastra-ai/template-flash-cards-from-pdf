@@ -1,4 +1,4 @@
-import { openai } from '@ai-sdk/openai';
+import { anthropic } from '@ai-sdk/anthropic';
 import { Agent } from '@mastra/core/agent';
 import { pdfContentExtractorTool } from '../tools/pdf-content-extractor-tool';
 import { contentAnalyzerTool } from '../tools/content-analyzer-tool';
@@ -35,7 +35,7 @@ Keep flash cards:
 
 Use the available tools to process PDFs and generate flash cards efficiently.
   `,
-  model: openai('gpt-4o'),
+  model: anthropic(process.env.MODEL ?? "claude-3-5-sonnet-20240620"),
   tools: {
     pdfContentExtractorTool,
     contentAnalyzerTool,
