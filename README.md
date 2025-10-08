@@ -21,7 +21,7 @@ A simple Mastra template that generates educational flash cards from PDF documen
    Create a `.env` file with:
 
    ```
-   OPENAI_API_KEY=your_openai_api_key
+   GOOGLE_GENERATIVE_AI_API_KEY=your_openai_api_key
 
    # Optional - for image generation
    AWS_REGION=us-east-1
@@ -185,7 +185,7 @@ Extend the content analyzer in `src/mastra/tools/content-analyzer-tool.ts` to ex
 
 ### Required
 
-- `OPENAI_API_KEY` - For AI content analysis and generation
+- `GOOGLE_GENERATIVE_AI_API_KEY` - For AI content analysis and generation
 
 ### Optional (for images)
 
