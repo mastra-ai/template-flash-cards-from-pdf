@@ -103,6 +103,6 @@ Always format your analysis as valid JSON with the exact structure requested, in
 
 Your analysis will directly feed into flash card generation, so ensure every element you identify is suitable for educational question-answer pairs.
   `,
-  model: openai('gpt-4o'),
+  model: openai(process.env.MODEL ?? "gpt-4.1"),
   memory,
 });
