@@ -1,4 +1,4 @@
-import { RequestContext } from '@mastra/core/di';
+import { RuntimeContext } from '@mastra/core/di';
 import { createStep, createWorkflow } from '@mastra/core/workflows';
 import { z } from 'zod';
 import { educationalImageTool } from '../tools/educational-image-tool';
@@ -64,7 +64,7 @@ const extractPdfContentStep = createStep({
     subjectArea: z.string(),
     pagesCount: z.number(),
   }),
-  execute: async ({ inputData, requestContext, mastra }) => {
+  execute: async ({ inputData, runtimeContext, mastra }) => {
     const { pdfUrl, pdfData, filename } = inputData;
 
     console.log('📄 Extracting content from PDF...');
@@ -76,7 +76,7 @@ const extractPdfContentStep = createStep({
         pdfData,
         filename,
       },
-      requestContext: requestContext || new RequestContext(),
+      runtimeContext: runtimeContext || new RuntimeContext(),
     });
 
     return {
@@ -124,7 +124,7 @@ const generateFlashCardsStep = createStep({
     totalCards: z.number(),
     subjectArea: z.string(),
   }),
-  execute: async ({ inputData, requestContext, mastra }) => {
+  execute: async ({ inputData, runtimeContext, mastra }) => {
     const { concepts, definitions, facts, subjectArea, numberOfCards } = inputData;
 
     console.log(`🃏 Generating ${numberOfCards} flash cards...`);
@@ -138,7 +138,7 @@ const generateFlashCardsStep = createStep({
         numberOfCards,
         subjectArea,
       },
-      requestContext: requestContext || new RequestContext(),
+      runtimeContext: runtimeContext || new RuntimeContext(),
     });
 
     return result;
@@ -172,7 +172,7 @@ const generateImagesStep = createStep({
       }),
     ),
   }),
-  execute: async ({ inputData, requestContext, mastra }) => {
+  execute: async ({ inputData, runtimeContext, mastra }) => {
     const { flashCards, generateImages, subjectArea } = inputData;
 
     if (!generateImages) {
@@ -201,7 +201,7 @@ const generateImagesStep = createStep({
                 card.difficulty === 'easy' ? 'beginner' : card.difficulty === 'medium' ? 'intermediate' : 'advanced',
               size: '1024x1024',
             },
-            requestContext: requestContext || new RequestContext(),
+            runtimeContext: runtimeContext || new RuntimeContext(),
           });
           imageUrl = imageResult.imageUrl;
           console.log(`✅ Generated image for card ${i + 1}`);
