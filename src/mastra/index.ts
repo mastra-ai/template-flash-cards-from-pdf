@@ -22,7 +22,6 @@ export const mastra = new Mastra({
     educationalImageAgent,
   },
   storage: new LibSQLStore({
-    id: 'mastra-storage',
     url: 'file:../mastra.db',
   }),
   logger: new PinoLogger({

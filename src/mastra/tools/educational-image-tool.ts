@@ -64,8 +64,8 @@ export const educationalImageTool = createTool({
       height: z.number(),
     }),
   }),
-  execute: async input => {
-    const { concept, subjectArea, style, complexity, size } = input;
+  execute: async ({ context }) => {
+    const { concept, subjectArea, style, complexity, size } = context;
 
     console.log(`🎨 Generating educational image for concept: "${concept.substring(0, 50)}..."`);
 
